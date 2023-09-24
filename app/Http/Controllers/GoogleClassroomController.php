@@ -36,7 +36,7 @@ class GoogleClassroomController extends Controller
         $client = new Google_Client();
         $client->setApplicationName('API Laravel Classroom');
         $client->setScopes(Google_Service_Classroom::CLASSROOM_COURSES);
-        $client->setAuthConfig('/home/pedeai/workspace/freela/projeto-teste-api-google/api-classroom/config/google_credencials2.json');
+        $client->setAuthConfig(config_path('google_credencials2.json'));
         $client->setRedirectUri(env('GOOGLE_CLASSROOM_REDIRECT_URI'));
         $client->setAccessType('offline');
         $client->setApprovalPrompt('force');
