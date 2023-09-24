@@ -33,7 +33,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 //$router->get('/googleLogin', [GoogleClassroomController::class, 'googleLogin']);
 //$router->get('/auth', [GoogleClassroomController::class, 'googleHandle']);
-$router->group(['prefix' => 'v1'], function () use ($router) {
+$router->group(['middleware' => ['web'],'prefix' => 'v1'], function () use ($router) {
     $router->get('/googleLogin', [GoogleClassroomController::class, 'googleLogin']);
     $router->get('/auth', [GoogleClassroomController::class, 'googleHandle']);
     $router->post('/courses', [GoogleClassroomController::class, 'createClassroom']);
