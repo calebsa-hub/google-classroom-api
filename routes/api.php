@@ -32,10 +32,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     $expiresIn = $user->expiresIn;
 // });
 //$router->get('/googleLogin', [GoogleClassroomController::class, 'googleLogin']);
-$router->get('/auth', [GoogleClassroomController::class, 'googleHandle']);
+//$router->get('/auth', [GoogleClassroomController::class, 'googleHandle']);
 $router->group(['prefix' => 'v1'], function () use ($router) {
-    //$router->get('/googleLogin', [GoogleClassroomController::class, 'googleLogin']);
-    //$router->get('/oauth2callback', [GoogleClassroomController::class, 'googleHandle']);
+    $router->get('/googleLogin', [GoogleClassroomController::class, 'googleLogin']);
+    $router->get('/auth', [GoogleClassroomController::class, 'googleHandle']);
     $router->post('/courses', [GoogleClassroomController::class, 'createClassroom']);
     $router->get('/courses/{id}', [GoogleClassroomController::class, 'getCourse']);
     $router->get('/courses', [GoogleClassroomController::class, 'listCourses']);
